@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+<head>
+    <link rel="icon" href="img/magic-mobile-icon.ico">
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>AngularJs One - All-in-one ressources</title>
+    <meta name="description" content="Get popular and latest news on AngularJS from HackerNews, Github at an unique URL. You can create your own board as well!"/>
+    <meta name="google-site-verification" content="t9oCkC87VKPNZMnYhGsMfEnCCRW8yUxIApC06RjnqPM" />
+    
+    <meta name="twitter:image" content="img/twitter.png" />
+    <meta name="og:image" content="img/twitter.png" />
+
+    <meta charset="utf-8" />
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+
+<!--     <link href="/css/style.css" rel="stylesheet"/>
+ -->    
+
+    <link href="/less/bootstrap.less" rel="stylesheet/less" type="text/css"/>
+    <script src="/js/less.min.js"></script>
+
+
+    <script>
+      less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+      };
+    </script>
+</head>
+<body ng-controller="SampleCtrl" ng-cloak="">
+
+  <div class="navbar">
+    <div class="container">
+      <navbar class="collapse navbar-collapse">
+        <a class="navbar-brand" href="#" title="AngularJS One logo">
+          <img src="img/logo-angularjs-one.png" alt="">
+<!--           <span class="special-caracter">A</span>ngularJs One
+ -->
+        </a>
+  
+        <ul class="nav navbar-nav socialButtons">
+          <li class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="dadadada">Tweet</a> 
+          </li>
+          <li>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+          </li>
+          <li class="linkedin">
+            <script type="IN/Share" data-counter="right"></script>
+          </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav pull-right">
+          <li>
+            <a href="">Github</a>
+          </li>
+          <li>
+            <a href="http://goo.gl/forms/DhBIC8eiy83IVa1u1" target="_blank">Submit job offer</a>
+          </li>
+        </ul>
+      </navbar>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="links-block">
+          <div class="links-block-header">
+            <h4>Hackernews</h4>
+            <select name="" id="" class="select-mode" ng-model="news.hackerNews.search.mode" ng-change="getHackerNews()">
+              <option value="search_by_date">Latest</option>
+              <option value="search">Popular</option>
+            </select>
+          </div>
+          <ul class="list-links hackernews">
+            <li ng-repeat="news in news.hackerNews.data">
+              <span class="rank">{{$index + 1}}</span>
+              <span class="link-wrapper">
+                <a class="main-link" href="{{news.url}}" target="_blank">
+                  {{news.title}}
+                </a>
+              </span>
+              
+              <small class="date">{{news.created_at | date:'mediumDate'}}</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="links-block">
+          <div class="links-block-header">
+            <h4>GitHub</h4>
+            <select name="" id="" class="select-mode" ng-model="news.githubNews.search.mode" ng-change="getGithubNews()">
+              <option value="updated">Latest</option>
+              <option value="stars">Popular</option>
+            </select>
+          </div>
+          <ul class="list-links github">
+            <li ng-repeat="news in news.githubNews.data">
+              <span class="rank">{{$index + 1}}</span>
+              <span class="link-wrapper">
+                <a class="main-link" href="{{news.clone_url}}" target="_blank">
+                  {{news.name | humanize}}
+                </a>
+              </span>
+              
+              <small class="date">{{news.created_at | date:'mediumDate'}}  <span class="ion-ios-star"></span> {{news.stargazers_count}}</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="links-block">
+          <div class="links-block-header">
+            <h4>Angularjs One Jobs <small>(Paris)</small></h4>
+          </div>
+          <ul class="list-links jobs">
+            <li ng-repeat="news in news.jobsNews.data | orderBy:'-gsx$timestamp'">
+              <span class="rank">{{$index + 1}}</span>
+              <span class="link-wrapper">
+                <a class="main-link" href="{{news.gsx$url.$t}}" target="_blank">
+                  {{news.gsx$title.$t | humanize}}
+                </a>
+              </span>
+              <small class="date"> <a href="{{news.gsx$companywebsiteurl.$t}}"> @{{news.gsx$companyname.$t | humanize}} </a>{{news.gsx$timestamp.$t | date:'mediumDate'}} </small>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+
+
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>
+
+          Made with <span class="ion-android-favorite special-caracter"></span> in Paris <a href="http://en.orson.io" target="_blank" title="Create responsive mobile website without coding">@Orson</a> // 
+            We are hiring <a href="http://fr.orson.io/45/recrutement" title="AngularJS Paris" target="_blank">Front dev in Paris</a> 
+          </h5>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-cookies.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-resource.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+
+    <script src="/js/app.js"></script>
+    
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=239545502808545";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+
+    <script>
+
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+     ga('create', 'UA-67953476-15', 'auto');
+     ga('send', 'pageview');
+
+    </script>
+
+</body>
+
+</html>
