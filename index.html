@@ -5,7 +5,7 @@
     
     <meta name="twitter:card" content="summary_large_image" />
     <title>AngularJs One - Latest news about AngularJS in One Page</title>
-    <meta name="description" content="Get popular and latest news on AngularJS from HackerNews, Github at an unique URL. Create your own board. All #AngularJs"/>
+    <meta name="description" content="Get popular and latest news on AngularJS from HackerNews, Github at a unique URL. Create your own board. All #AngularJs"/>
     <meta name="google-site-verification" content="t9oCkC87VKPNZMnYhGsMfEnCCRW8yUxIApC06RjnqPM" />
     
     <meta name="twitter:image" content="img/twitter.png" />
@@ -25,8 +25,8 @@
     <link href="css/style.css" rel="stylesheet"/>
     
     <!-- <link href="/less/bootstrap.less" rel="stylesheet/less" type="text/css"/>
-    <script src="/js/less.min.js"></script>
- -->
+    <script src="/js/less.min.js"></script> -->
+
     
    <!--  <script>
       less = {
@@ -43,14 +43,23 @@
 </head>
 <body ng-controller="SampleCtrl" ng-cloak="">
 
-  <div class="navbar">
+  <div class="navbar  navbar-default">
     <div class="container">
-      <navbar class="collapse navbar-collapse">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="#" title="AngularJS One logo">
           <img src="img/logo-angularjs-one.png" alt="AngularJs One project logo Github">
         </a>
-  
-        <ul class="nav navbar-nav socialButtons">
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav socialButtons hidden-xs hidden-sm">
           <li class="twitter">
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://orsonapp.github.io/AngularJS-One/" data-text="AngularJS One, Create your all-in-one dashboard to get news from HackerNews, Github. #opensource #angularjs">Tweet</a> 
           </li>
@@ -61,8 +70,6 @@
             <script type="IN/Share" data-counter="right"></script>
           </li>
         </ul>
-
-
         <ul class="nav navbar-nav pull-right">
           <li>
             <a href="https://github.com/OrsonApp/AngularJS-One" title="Angularjs github project to get all news from Hackernews and Github">Github</a>
@@ -71,7 +78,8 @@
             <a href="http://goo.gl/forms/DhBIC8eiy83IVa1u1" title="Submit your Angularjs job offer on Paris" target="_blank">Submit job offer</a>
           </li>
         </ul>
-      </navbar>
+      </div>
+
 
     </div>
   </div>
@@ -134,18 +142,15 @@
             <li ng-repeat="news in news.jobsNews.data | orderBy:'-gsx$timestamp'">
               <span class="rank">{{$index + 1}}</span>
               <span class="link-wrapper">
-                <a class="main-link" href="{{news.gsx$url.$t}}" target="_blank">
+                <a class="main-link" href="{{news.gsx$jobofferurl.$t}}" target="_blank">
                   {{news.gsx$title.$t | humanize}}
                 </a>
               </span>
-              <small class="date"> <a href="{{news.gsx$companywebsiteurl.$t}}"> @{{news.gsx$companyname.$t | humanize}} </a>{{news.gsx$timestamp.$t | date:'mediumDate'}} </small>
+              <small class="date"> <a href="{{news.gsx$companywebsiteurl.$t}}" target="_blank"> @{{news.gsx$companyname.$t | humanize}} </a>{{news.gsx$timestamp.$t | date:'mediumDate'}} </small>
             </li>
           </ul>
         </div>
-        
       </div>
-
-
     </div>
   </div>
   
