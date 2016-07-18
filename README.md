@@ -6,7 +6,6 @@ directly into one single page. It's all written in **AngularJS 1.5.1** right now
 It has all been written within a day as a side project [@Orson] (http://en.orson.io)
 
 ## News feed
-
 We use all the public API using JSONP callback so it's working directly from the client.
 
 **Github** [Documentation](https://developer.github.com/v3/)
