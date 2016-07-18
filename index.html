@@ -4,7 +4,7 @@
     <link rel="icon" href="img/magic-mobile-icon.ico">
     
     <meta name="twitter:card" content="summary_large_image" />
-    <title>AngularJs One - All-in-one ressources</title>
+    <title>AngularJs One - All-in-one ressources about AngularJS</title>
     <meta name="description" content="Get popular and latest news on AngularJS from HackerNews, Github at an unique URL. You can create your own board as well!"/>
     <meta name="google-site-verification" content="t9oCkC87VKPNZMnYhGsMfEnCCRW8yUxIApC06RjnqPM" />
     
@@ -20,16 +20,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
 
-<!--     <link href="/css/style.css" rel="stylesheet"/>
- -->    
-
-    <link href="/less/bootstrap.less" rel="stylesheet/less" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    
+    <!-- <link href="/less/bootstrap.less" rel="stylesheet/less" type="text/css"/>
     <script src="/js/less.min.js"></script>
-
-
-    <script>
+ -->
+    
+   <!--  <script>
       less = {
         env: "development",
         async: false,
@@ -40,7 +39,7 @@
         relativeUrls: false,
         rootpath: ":/a.com/"
       };
-    </script>
+    </script> -->
 </head>
 <body ng-controller="SampleCtrl" ng-cloak="">
 
@@ -48,17 +47,15 @@
     <div class="container">
       <navbar class="collapse navbar-collapse">
         <a class="navbar-brand" href="#" title="AngularJS One logo">
-          <img src="img/logo-angularjs-one.png" alt="">
-<!--           <span class="special-caracter">A</span>ngularJs One
- -->
+          <img src="img/logo-angularjs-one.png" alt="AngularJs One project logo Github">
         </a>
   
         <ul class="nav navbar-nav socialButtons">
           <li class="twitter">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="dadadada">Tweet</a> 
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://orsonapp.github.io/AngularJS-One/" data-text="AngularJS One, Create your all-in-one dashboard to get news from HackerNews, Github. #opensource #angularjs">Tweet</a> 
           </li>
           <li>
-            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+            <div class="fb-share-button" data-href="https://orsonapp.github.io/AngularJS-One/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
           </li>
           <li class="linkedin">
             <script type="IN/Share" data-counter="right"></script>
@@ -68,10 +65,10 @@
 
         <ul class="nav navbar-nav pull-right">
           <li>
-            <a href="">Github</a>
+            <a href="https://github.com/OrsonApp/AngularJS-One" title="Angularjs github project to get all news from Hackernews and Github">Github</a>
           </li>
           <li>
-            <a href="http://goo.gl/forms/DhBIC8eiy83IVa1u1" target="_blank">Submit job offer</a>
+            <a href="http://goo.gl/forms/DhBIC8eiy83IVa1u1" title="Submit your Angularjs job offer on Paris" target="_blank">Submit job offer</a>
           </li>
         </ul>
       </navbar>
@@ -97,7 +94,6 @@
                   {{news.title}}
                 </a>
               </span>
-              
               <small class="date">{{news.created_at | date:'mediumDate'}}</small>
             </li>
           </ul>
@@ -159,8 +155,8 @@
         <div class="col-md-12">
           <h5>
 
-          Made with <span class="ion-android-favorite special-caracter"></span> in Paris <a href="http://en.orson.io" target="_blank" title="Create responsive mobile website without coding">@Orson</a> // 
-            We are hiring <a href="http://fr.orson.io/45/recrutement" title="AngularJS Paris" target="_blank">Front dev in Paris</a> 
+          Made with <span class="ion-android-favorite special-caracter"></span> in Paris <a href="http://en.orson.io?utm_source=AngularjsOne&utm_medium=referral&utm_content=AngularjsOne&utm_campaign=AngularjsOne" target="_blank" title="Create responsive mobile website without coding">@Orson</a> // 
+            We are hiring <a href="http://fr.orson.io/45/recrutement?utm_source=AngularjsOne&utm_medium=referral&utm_content=AngularjsOne&utm_campaign=AngularjsOne" title="AngularJS Paris Job" target="_blank">Front End Engineers</a> in Paris
           </h5>
         </div>
       </div>

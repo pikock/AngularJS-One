@@ -107,7 +107,6 @@ app.controller("SampleCtrl", ["$scope", "$http", "$timeout", "NewsFeed",
       $scope.getJobNews = function(){
           NewsFeed.jobNews.get().then(function(results){
             $scope.news.jobsNews.data = results.data.feed.entry;
-            console.log($scope.news.jobsNews.data)
         })
       }
 
