@@ -19,7 +19,7 @@ app.factory('NewsFeed', ['$timeout', '$http', '$q', function ($timeout, $http, $
           // Can use mode popular or latest
           var defaultMode = "search_by_date";
           if (angular.isDefined(mode)) defaultMode = mode;
-          var queryUrl =  "http://hn.algolia.com/api/v1/" + defaultMode;
+          var queryUrl =  "https://hn.algolia.com/api/v1/" + defaultMode;
           
           $http({method: 'GET', url: queryUrl, params: {query: query, tags: "story"}}).
             then(function(response) {
